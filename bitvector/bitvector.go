@@ -10,7 +10,7 @@ type IntSet struct {
 }
 
 const (
-	wordBitCount = 32 << (^uint(0) >> 63)
+	wordBitCount = (32 << (^uint(0) >> 63))
 )
 
 // add x into set s
@@ -19,7 +19,7 @@ func (s *IntSet) Add(x int) {
 	for word >= len(s.words) {
 		s.words = append(s.words, 0)
 	}
-	s.words[word] |= 1 << index
+	s.words[word] |= (1 << index)
 }
 
 // check wether x is in set s
